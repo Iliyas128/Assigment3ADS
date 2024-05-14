@@ -1,18 +1,17 @@
-public class MyHashTable {
+public class MyHashTable <K,V>{
+    private class HashNode<K,V>{
+        private K key; // key of values
+        private V value; //value, can be identified by key
+        private HashNode<K,V> next;
 
-    private HashNode[] buckets; //array of Hash nodes
-    private int size; // size of buckets(Key-value pairs)
-    private int numOfBuckets; // capacity
-    private class HashNode{
-        private String key; // key of value(right now it is string,but it also can be integer)
-        private Integer value; //value, can be identified by key
-        private HashNode next;
-
-        public HashNode(String key, Integer value){
+        public HashNode(K key,V value){
             this.key = key;
             this.value = value;
         }
     }
+    private HashNode<K,V>[] buckets;
+    private int size; // size of buckets(Key-value pairs)
+    private int numOfBuckets; // capacity
 
     public MyHashTable(int capacity){
         this.numOfBuckets = capacity;
@@ -29,6 +28,6 @@ public class MyHashTable {
         else{
             return false;
         }
-    } 
+    }
 
 }
